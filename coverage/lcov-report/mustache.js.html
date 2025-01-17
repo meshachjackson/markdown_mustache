@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for compiler.js</title>
+    <title>Code coverage report for mustache.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="prettify.css" />
     <link rel="stylesheet" href="base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="index.html">All files</a> compiler.js</h1>
+        <h1><a href="index.html">All files</a> mustache.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.44% </span>
+                <span class="strong">80.64% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>34/36</span>
+                <span class='fraction'>25/31</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">90% </span>
+                <span class="strong">25% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>9/10</span>
+                <span class='fraction'>1/4</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">94.44% </span>
+                <span class="strong">80.64% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>34/36</span>
+                <span class='fraction'>25/31</span>
             </div>
         
             
@@ -94,12 +94,7 @@
 <a name='L29'></a><a href='#L29'>29</a>
 <a name='L30'></a><a href='#L30'>30</a>
 <a name='L31'></a><a href='#L31'>31</a>
-<a name='L32'></a><a href='#L32'>32</a>
-<a name='L33'></a><a href='#L33'>33</a>
-<a name='L34'></a><a href='#L34'>34</a>
-<a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a>
-<a name='L37'></a><a href='#L37'>37</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L32'></a><a href='#L32'>32</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -108,69 +103,59 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">7x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">7x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">4x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
-<span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-yes">4x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">4x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const { renderTemplate } = require("./mustache");
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">const Mustache = require("mustache");
 &nbsp;
 /**
- * Compiles an array of blocks with a provided configuration.
+ * Renders a template string with the provided data using Mustache.
  *
- * @param {string[]} blocks - Array of block templates to compile.
- * @param {object} config - Configuration object for Mustache placeholders.
- * @returns {string} - Compiled blocks joined as a single string.
+ * @param {string} template - The Mustache template string.
+ * @param {object} data - The data object to inject into the template.
+ * @returns {string} - The rendered template.
+ * @throws {Error} - If the template or data is invalid.
+ *
+ * @example
+ * const template = "Hello, {{name}}!";
+ * const data = { name: "World" };
+ * console.log(renderTemplate(template, data)); // Output: "Hello, World!"
  */
-function compileBlocks(blocks, config) {
-  if (!Array.isArray(blocks)) {
-    throw new Error("Blocks must be a non-empty array of strings.");
-  }
-  if (blocks.length === 0) {
-    return ""; // Return empty string for empty blocks array
-  }
-  if (typeof config !== "object" || config === null) {
-    throw new Error("Config must be a valid object.");
-  }
+const renderTemplate = (template, data) =&gt; {
+  if (typeof template !== "string") <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    throw new Error("Template must be a string.");</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+  if (typeof data !== "object" || data === null) <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
+<span class="cstat-no" title="statement not covered" >    throw new Error("Data must be a valid object.");</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
 &nbsp;
-  console.log("Compiling blocks with config:", blocks);
+  try {
+    return Mustache.render(template, data);
+  } <span class="branch-0 cbranch-no" title="branch not covered" >catch (err) {</span>
+<span class="cstat-no" title="statement not covered" >    throw new Error(`Failed to render template: ${err.message}`);</span>
+<span class="cstat-no" title="statement not covered" >  }</span>
+};
 &nbsp;
-  return (
-    blocks
-      .map((block) =&gt; {
-        if (typeof block !== "string") <span class="branch-0 cbranch-no" title="branch not covered" >{</span>
-<span class="cstat-no" title="statement not covered" >          throw new Error("Each block must be a string.");</span>
-<span class="cstat-no" title="statement not covered" >        }</span>
-        // Render the block and ensure undefined/null is converted to an empty string
-        return renderTemplate(block, config) || "";
-      })
-      .join("\n\n") + "\n\n"
-  ); // Ensure proper separation between blocks and append trailing newline
-}
-&nbsp;
-module.exports = { compileBlocks };
+module.exports = { renderTemplate };
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->

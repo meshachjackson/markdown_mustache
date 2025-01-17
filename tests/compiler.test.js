@@ -1,12 +1,43 @@
-import { compileBlocks } from "../src/core/compiler";
+const { compileBlocks } = require("../src/core/compiler");
 
-test("Example test", () => {
-  const result = compileBlocks(["block1", "block2"], {});
-  expect(result).toBe("Compiled: block1\nCompiled: block2");
+const mockConfig = {
+  key1: "value1",
+  key2: "value2",
+};
+
+test("compiles multiple blocks into a single string", () => {
+  const blocks = ["{{key1}}", "{{key2}}"];
+  const result = compileBlocks(blocks, mockConfig);
+  expect(result).toBe("value1\n\nvalue2\n\n");
 });
 
-test("adds 1 + 2 to equal 3", () => {
-  const sum = (a, b) => a + b;
-  expect(sum(1, 2)).toBe(3);
+test("handles empty blocks array", () => {
+  const blocks = [];
+  const result = compileBlocks(blocks, mockConfig);
+  expect(result).toBe("");
 });
-l
+
+test("handles missing variables gracefully", () => {
+  const blocks = ["{{key1}}", "{{missingKey}}"];
+  const result = compileBlocks(blocks, mockConfig);
+  expect(result).toBe("value1\n\n\n\n");
+});
+
+test("throws error for invalid blocks input", () => {
+  expect(() => compileBlocks(null, mockConfig)).toThrow(
+    "Blocks must be a non-empty array of strings."
+  );
+  expect(() => compileBlocks("notAnArray", mockConfig)).toThrow(
+    "Blocks must be a non-empty array of strings."
+  );
+});
+
+test("throws error for invalid config input", () => {
+  const blocks = ["{{key1}}"];
+  expect(() => compileBlocks(blocks, null)).toThrow(
+    "Config must be a valid object."
+  );
+  expect(() => compileBlocks(blocks, "notAnObject")).toThrow(
+    "Config must be a valid object."
+  );
+});

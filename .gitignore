@@ -1,3 +1,6 @@
 
 .vscode/settings.json
 .DS_Store
+coverage/coverage-final.json
+coverage/clover.xml
+coverage/lcov.info
