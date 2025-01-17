@@ -1,14 +1,17 @@
-// Configuration loader and validator
-import fs from 'fs';
+// config.js
+import fs from "fs/promises";
 
-export function loadConfig(configPath) {
-  const config = JSON.parse(fs.readFileSync(configPath, 'utf-8'));
-  validateConfig(config);
-  return config;
-}
-
-function validateConfig(config) {
-  if (!config.blocks) {
-    throw new Error("Invalid configuration: 'blocks' is required");
+/**
+ * Reads a JSON configuration file and parses it into an object.
+ *
+ * @param {string} filePath - Path to the configuration file.
+ * @returns {Promise<object>} - Parsed configuration object.
+ */
+export const readConfig = async (filePath) => {
+  try {
+    const data = await fs.readFile(filePath, "utf-8");
+    return JSON.parse(data);
+  } catch (err) {
+    throw new Error(`Failed to read config file: ${err.message}`);
   }
-}
+};

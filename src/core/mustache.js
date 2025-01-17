@@ -1,4 +1,5 @@
-const Mustache = require("mustache");
+// mustache.js
+import Mustache from "mustache";
 
 /**
  * Renders a template string with the provided data using Mustache.
@@ -13,7 +14,7 @@ const Mustache = require("mustache");
  * const data = { name: "World" };
  * console.log(renderTemplate(template, data)); // Output: "Hello, World!"
  */
-const renderTemplate = (template, data) => {
+export const renderTemplate = (template, data) => {
   if (typeof template !== "string") {
     throw new Error("Template must be a string.");
   }
@@ -27,5 +28,3 @@ const renderTemplate = (template, data) => {
     throw new Error(`Failed to render template: ${err.message}`);
   }
 };
-
-module.exports = { renderTemplate };
