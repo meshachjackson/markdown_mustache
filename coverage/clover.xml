@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1737127585116" clover="3.2.0">
-  <project timestamp="1737127585116" name="All files">
-    <metrics statements="67" coveredstatements="59" conditionals="14" coveredconditionals="10" methods="2" coveredmethods="2" elements="83" coveredelements="71" complexity="0" loc="67" ncloc="67" packages="1" files="2" classes="2"/>
+<coverage generated="1737130648712" clover="3.2.0">
+  <project timestamp="1737130648712" name="All files">
+    <metrics statements="52" coveredstatements="42" conditionals="91" coveredconditionals="56" methods="46" coveredmethods="27" elements="189" coveredelements="125" complexity="0" loc="52" ncloc="52" packages="1" files="2" classes="2"/>
     <file name="compiler.js" path="/Users/meshach/Code/markdown_mustache/src/core/compiler.js">
-      <metrics statements="36" coveredstatements="34" conditionals="10" coveredconditionals="9" methods="1" coveredmethods="1"/>
+      <metrics statements="35" coveredstatements="29" conditionals="88" coveredconditionals="55" methods="45" coveredmethods="26"/>
       <line num="1" count="1" type="stmt"/>
-      <line num="2" count="1" type="stmt"/>
+      <line num="2" count="2" type="cond" truecount="35" falsecount="24"/>
       <line num="3" count="1" type="stmt"/>
-      <line num="4" count="1" type="stmt"/>
-      <line num="5" count="1" type="stmt"/>
-      <line num="6" count="1" type="stmt"/>
-      <line num="7" count="1" type="stmt"/>
-      <line num="8" count="1" type="stmt"/>
-      <line num="9" count="1" type="stmt"/>
-      <line num="10" count="7" type="cond" truecount="1" falsecount="0"/>
-      <line num="11" count="7" type="cond" truecount="1" falsecount="0"/>
-      <line num="12" count="2" type="stmt"/>
-      <line num="13" count="2" type="cond" truecount="1" falsecount="0"/>
-      <line num="14" count="7" type="cond" truecount="1" falsecount="0"/>
-      <line num="15" count="1" type="stmt"/>
-      <line num="16" count="1" type="cond" truecount="1" falsecount="0"/>
-      <line num="17" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="4" count="3" type="cond" truecount="1" falsecount="0"/>
+      <line num="5" count="3" type="stmt"/>
+      <line num="6" count="3" type="stmt"/>
+      <line num="7" count="3" type="stmt"/>
+      <line num="8" count="3" type="stmt"/>
+      <line num="9" count="3" type="stmt"/>
+      <line num="10" count="3" type="stmt"/>
+      <line num="11" count="1" type="cond" truecount="8" falsecount="0"/>
+      <line num="12" count="3" type="cond" truecount="2" falsecount="0"/>
+      <line num="13" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="14" count="2" type="stmt"/>
+      <line num="15" count="2" type="cond" truecount="0" falsecount="1"/>
+      <line num="16" count="0" type="cond" truecount="1" falsecount="0"/>
+      <line num="17" count="2" type="stmt"/>
       <line num="18" count="2" type="stmt"/>
       <line num="19" count="2" type="stmt"/>
-      <line num="20" count="2" type="stmt"/>
-      <line num="21" count="2" type="stmt"/>
-      <line num="22" count="2" type="stmt"/>
+      <line num="20" count="2" type="cond" truecount="4" falsecount="0"/>
+      <line num="21" count="2" type="cond" truecount="0" falsecount="1"/>
+      <line num="22" count="2" type="cond" truecount="0" falsecount="1"/>
       <line num="23" count="2" type="stmt"/>
-      <line num="24" count="2" type="stmt"/>
-      <line num="25" count="2" type="cond" truecount="1" falsecount="0"/>
-      <line num="26" count="4" type="cond" truecount="0" falsecount="1"/>
-      <line num="27" count="0" type="stmt"/>
-      <line num="28" count="0" type="stmt"/>
-      <line num="29" count="4" type="stmt"/>
-      <line num="30" count="4" type="cond" truecount="1" falsecount="0"/>
-      <line num="31" count="2" type="stmt"/>
-      <line num="32" count="2" type="stmt"/>
-      <line num="33" count="2" type="stmt"/>
-      <line num="34" count="2" type="stmt"/>
+      <line num="24" count="2" type="cond" truecount="0" falsecount="1"/>
+      <line num="25" count="2" type="stmt"/>
+      <line num="26" count="2" type="stmt"/>
+      <line num="27" count="2" type="stmt"/>
+      <line num="28" count="0" type="cond" truecount="0" falsecount="2"/>
+      <line num="29" count="0" type="stmt"/>
+      <line num="30" count="0" type="cond" truecount="1" falsecount="1"/>
+      <line num="31" count="2" type="cond" truecount="1" falsecount="0"/>
+      <line num="32" count="2" type="cond" truecount="0" falsecount="1"/>
+      <line num="33" count="0" type="stmt"/>
+      <line num="34" count="0" type="cond" truecount="1" falsecount="1"/>
       <line num="35" count="1" type="stmt"/>
-      <line num="36" count="1" type="stmt"/>
     </file>
     <file name="mustache.js" path="/Users/meshach/Code/markdown_mustache/src/core/mustache.js">
-      <metrics statements="31" coveredstatements="25" conditionals="4" coveredconditionals="1" methods="1" coveredmethods="1"/>
+      <metrics statements="17" coveredstatements="13" conditionals="3" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <line num="1" count="1" type="stmt"/>
       <line num="2" count="1" type="stmt"/>
       <line num="3" count="1" type="stmt"/>
@@ -51,29 +50,15 @@
       <line num="6" count="1" type="stmt"/>
       <line num="7" count="1" type="stmt"/>
       <line num="8" count="1" type="stmt"/>
-      <line num="9" count="1" type="stmt"/>
-      <line num="10" count="1" type="stmt"/>
-      <line num="11" count="1" type="stmt"/>
-      <line num="12" count="1" type="stmt"/>
-      <line num="13" count="1" type="stmt"/>
-      <line num="14" count="1" type="stmt"/>
-      <line num="15" count="1" type="stmt"/>
-      <line num="16" count="1" type="cond" truecount="1" falsecount="0"/>
-      <line num="17" count="4" type="cond" truecount="0" falsecount="1"/>
-      <line num="18" count="0" type="stmt"/>
-      <line num="19" count="0" type="stmt"/>
-      <line num="20" count="4" type="cond" truecount="0" falsecount="1"/>
-      <line num="21" count="0" type="stmt"/>
-      <line num="22" count="0" type="stmt"/>
-      <line num="23" count="4" type="stmt"/>
-      <line num="24" count="4" type="stmt"/>
-      <line num="25" count="4" type="stmt"/>
-      <line num="26" count="4" type="cond" truecount="0" falsecount="1"/>
-      <line num="27" count="0" type="stmt"/>
-      <line num="28" count="0" type="stmt"/>
-      <line num="29" count="4" type="stmt"/>
-      <line num="30" count="1" type="stmt"/>
-      <line num="31" count="1" type="stmt"/>
+      <line num="9" count="1" type="cond" truecount="1" falsecount="0"/>
+      <line num="10" count="2" type="cond" truecount="0" falsecount="1"/>
+      <line num="11" count="0" type="stmt"/>
+      <line num="12" count="0" type="stmt"/>
+      <line num="13" count="2" type="cond" truecount="0" falsecount="1"/>
+      <line num="14" count="0" type="stmt"/>
+      <line num="15" count="0" type="stmt"/>
+      <line num="16" count="2" type="stmt"/>
+      <line num="17" count="2" type="stmt"/>
     </file>
   </project>
 </coverage>

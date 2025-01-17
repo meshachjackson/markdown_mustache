@@ -1,7 +1,1 @@
-{
-  "name": "John Doe",
-  "company": "Markdown Mustache Inc.",
-  "specialty": "creating dynamic markdown templates",
-  "years": "10",
-  "email": "contact@markdownmustache.com"
-}
+{"key1":"value1"}

@@ -1,43 +1,49 @@
-const { compileBlocks } = require("../src/core/compiler");
+import { compileBlocks } from "../src/core/compiler.js";
 
-const mockConfig = {
-  key1: "value1",
-  key2: "value2",
-};
+describe("Compiler Module Tests", () => {
+  const mockVariables = { name: "World", key1: "Value1" };
+  const mockLayout = [
+    {
+      title: "Introduction",
+      subtitle: "Welcome",
+      description: "Hello, {{name}}!",
+      file: "block1.md",
+    },
+  ];
 
-test("compiles multiple blocks into a single string", () => {
-  const blocks = ["{{key1}}", "{{key2}}"];
-  const result = compileBlocks(blocks, mockConfig);
-  expect(result).toBe("value1\n\nvalue2\n\n");
-});
+  const mockFileSystem = {
+    "block1.md": "This is block 1 content.",
+  };
 
-test("handles empty blocks array", () => {
-  const blocks = [];
-  const result = compileBlocks(blocks, mockConfig);
-  expect(result).toBe("");
-});
+  const mockFileReader = async (filePath) => mockFileSystem[filePath];
 
-test("handles missing variables gracefully", () => {
-  const blocks = ["{{key1}}", "{{missingKey}}"];
-  const result = compileBlocks(blocks, mockConfig);
-  expect(result).toBe("value1\n\n\n\n");
-});
+  test("Compiles multiple blocks into a single string", async () => {
+    const result = await compileBlocks(
+      mockLayout,
+      mockVariables,
+      "",
+      mockFileReader
+    );
+    expect(result).toContain("# Introduction\n\n");
+    expect(result).toContain("## Welcome\n\n");
+    expect(result).toContain("Hello, World!");
+    expect(result).toContain("This is block 1 content.");
+  });
 
-test("throws error for invalid blocks input", () => {
-  expect(() => compileBlocks(null, mockConfig)).toThrow(
-    "Blocks must be a non-empty array of strings."
-  );
-  expect(() => compileBlocks("notAnArray", mockConfig)).toThrow(
-    "Blocks must be a non-empty array of strings."
-  );
-});
+  test("Handles missing variables gracefully", async () => {
+    const incompleteVariables = {};
+    const result = await compileBlocks(
+      mockLayout,
+      incompleteVariables,
+      "",
+      mockFileReader
+    );
+    expect(result).toContain("Hello, !");
+  });
 
-test("throws error for invalid config input", () => {
-  const blocks = ["{{key1}}"];
-  expect(() => compileBlocks(blocks, null)).toThrow(
-    "Config must be a valid object."
-  );
-  expect(() => compileBlocks(blocks, "notAnObject")).toThrow(
-    "Config must be a valid object."
-  );
+  test("Throws error for invalid layout input", async () => {
+    await expect(compileBlocks(null, mockVariables)).rejects.toThrow(
+      "Layout must be an array."
+    );
+  });
 });
