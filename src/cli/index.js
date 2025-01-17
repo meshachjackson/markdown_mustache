@@ -1,26 +1,34 @@
-// CLI Script
-import { program } from "commander";
 import { compileBlocks } from "../core/compiler.js";
-import { readConfig } from "../core/config.js";
-import { readFileContent, writeFileContent } from "../core/fileUtils.js";
+import { readFileSync, writeFileSync } from "fs";
+import path from "path";
+import { program } from "commander";
 
 program
-  .option("-i, --input <path>", "Input file path")
-  .option("-c, --config <path>", "Configuration file path")
-  .option("-o, --output <path>", "Output file path")
-  .action(async (options) => {
-    const { input, config, output } = options;
+  .requiredOption("-i, --input <layoutFile>", "Path to the layout JSON file")
+  .requiredOption(
+    "-c, --config <configFile>",
+    "Path to the variables JSON file"
+  )
+  .requiredOption(
+    "-o, --output <outputFile>",
+    "Path to the output Markdown file"
+  )
+  .parse(process.argv);
 
-    try {
-      const inputBlocks = (await readFileContent(input)).split("\n\n");
-      const configData = await readConfig(config);
-      const compiled = compileBlocks(inputBlocks, configData);
-      await writeFileContent(output, compiled);
+const options = program.opts();
 
-      console.log(`Compiled output written to ${output}`);
-    } catch (err) {
-      console.error(`Error: ${err.message}`);
-    }
-  });
+try {
+  const layoutPath = path.resolve(options.input);
+  const configPath = path.resolve(options.config);
+  const outputPath = path.resolve(options.output);
 
-program.parse(process.argv);
+  const layout = JSON.parse(readFileSync(layoutPath, "utf-8"));
+  const config = JSON.parse(readFileSync(configPath, "utf-8"));
+
+  const result = compileBlocks(layout, config, layoutPath);
+  writeFileSync(outputPath, result, "utf-8");
+
+  console.log(`Markdown generated successfully at: ${outputPath}`);
+} catch (error) {
+  console.error("Error:", error.message);
+}

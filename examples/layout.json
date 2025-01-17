@@ -1,0 +1,19 @@
+[
+  {
+    "title": "Introduction",
+    "subtitle": "Welcome Message",
+    "description": "Here is the introduction to our project.",
+    "file": "blocks/block1.md"
+  },
+  {
+    "title": "Our Story",
+    "subtitle": "What We Do",
+    "file": "blocks/block2.md"
+  },
+  {
+    "title": "Get in Touch",
+    "subtitle": "Contact Information",
+    "description": "We’d love to hear from you!",
+    "file": "blocks/block3.md"
+  }
+]
